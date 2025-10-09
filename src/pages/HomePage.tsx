@@ -6,7 +6,6 @@ import BackToTop from "../components/BackToTopBtn";
 import Avatar from "./../assets/media/Avatar.png"
 import InsaneLuvLogo from "./../assets/media/insaneluv-white-logo.png"
 import BgMoon from "./../assets/media/bg-moon.png"
-import BgBlack from "./../assets/media/bg-black.png"
 import BgWhite from "./../assets/media/bg-white.png"
 import TelegramIcon from "./../assets/media/telegram-icon.svg"
 import InstagramIcon from "./../assets/media/instagram-icon.svg"
@@ -84,6 +83,7 @@ const HomePage = () => {
           </ProjectsList>
         </ProjectsContent>
       </ProjectsBlock>
+      <BackToTop />
     </HomeWrapper>
    );
 }
@@ -96,6 +96,7 @@ const MainBlock = styled.image`
   display: flex;
   height: 100vh;
   width: 100%;
+  background-color: #202020;
   background-image: url(${BgMoon});
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -252,13 +253,11 @@ const ProjectCard = styled.div`
   display: flex;
 	flex-direction: column;
   padding: 20px 20px;
-
-
-	/* background-color: #404040; */
+  width: 400px;
 	img {
 		object-fit: cover;
-		width: 100%;
-		height: 200px;
+		width: 400px;
+		height: 225px;
 		border-radius: 10px;
 		margin-bottom: 20px;
 	}
@@ -272,17 +271,21 @@ const ProjectTags = styled.div`
 	flex-wrap: wrap;
 	margin-bottom: 5px;
 	div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 		background-color: 0;
 		color: #fff;
-		border: 1px solid #fff;
+		border: 2px solid #fff;
 		padding: 2px 8px;
 		margin-right: 5px;
 		border-radius: 15px;
 		margin-bottom: 5px;
+    font-weight: 400;
 	}
 `;
 const ProjectDesc = styled.div`
-	color: #dadada;
+	color: #e7e7e7;
 `;
  
 export default HomePage;

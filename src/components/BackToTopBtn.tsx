@@ -42,8 +42,8 @@ const BackToTopBtn = styled.div`
   position: fixed;
   bottom: 120px;
   right: 50px;
-  background-color: #21A049;
-  color: #202020;
+  background-color: #303030;
+  color: #fff;
   border: none;
   border-radius: 50%;
   width: 30px;

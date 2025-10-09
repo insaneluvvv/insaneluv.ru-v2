@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+import BgBlack from "./../assets/media/bg-black.png"
 import TelegramIcon from "./../assets/media/telegram-icon.svg"
 import InstagramIcon from "./../assets/media/instagram-icon.svg"
 import EmailIcon from "./../assets/media/email-icon.svg"
+
 
 
 const Footer = () => {
@@ -25,7 +27,6 @@ const FooterWrapper = styled.footer`
   max-width: 100%;
   height: 100px;
   background-color: #151515;
-  color: #909090;
   padding: 0 15%;
   @media (max-width: 1060px) {
     flex-direction: column;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import BgBlack from "./../assets/media/bg-black.png"
 import TelegramIcon from "./../assets/media/telegram-icon.svg"
 import InstagramIcon from "./../assets/media/instagram-icon.svg"
 import EmailIcon from "./../assets/media/email-icon.svg"

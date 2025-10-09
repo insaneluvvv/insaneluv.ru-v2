@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import styled from "styled-components"
+
+import Footer from "./components/Footer"
+
+import HomePage from "./pages/HomePage"
+import NotFounPage from "./pages/NotFoundPage"
+
+import LogofolioPage from "./pages/projects/LogofolioPage"
+import KandinskyPage from "./pages/projects/KandinskyPage"
+import StudJobPage from "./pages/projects/StudJobPage"
+import CourseResearchWorkPage from "./pages/projects/CourseResearchWorkPage"
+import TournamentsPage from "./pages/projects/TournamentsPage"
+import LinguaFlowPage from "./pages/projects/LinguaFlowPage"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AppWrapper>
+      <Router>
+        <MainWrapper>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+
+            <Route path="/logofolio" element={<LogofolioPage />} />
+            <Route path="/kandinsky" element={<KandinskyPage />} />
+            <Route path="/studjob" element={<StudJobPage />} />
+              <Route path="/course-research-work" element={<CourseResearchWorkPage />} />
+              <Route path="/tournaments" element={<TournamentsPage />} />
+              <Route path="/linguaflow" element={<LinguaFlowPage />} />
+
+              <Route path="*" element={<NotFounPage />} />
+
+          </Routes>
+        </MainWrapper>
+        <Footer />
+      </Router>
+    </AppWrapper>
   )
 }
+
+const AppWrapper = styled.div`
+  min-height: 100vh;
+
+`
+const MainWrapper = styled.div`
+  min-height: calc(100vh - 50px - 100px);
+  @media (max-width: 800px) {
+    min-height: calc(100vh - 50px - 140px);
+  }
+`
 
 export default App

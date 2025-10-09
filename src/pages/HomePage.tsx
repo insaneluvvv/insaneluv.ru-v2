@@ -110,7 +110,7 @@ const MainBlock = styled.image`
     height: 100px;
     position: absolute;
     top: 50px;
-    left: 270px;
+    left: 355px;
     transform: translate(-50%, 0);
     @media (max-width: 1600px) {
       height: 80px;

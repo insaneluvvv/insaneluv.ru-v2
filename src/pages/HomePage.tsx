@@ -44,17 +44,17 @@ const HomePage = () => {
           </BlockDescription>
           <BlockFooter>
             <Links>
-              <LinkItem href="https://t.me/insaneluvvv">
+              <LinkItem href="https://t.me/insaneluvvv" target="_blank">
                 <img src={TelegramIcon} alt="TelegramIcon" />
-                <a className="roboto-w-16" href="https://t.me/insaneluvvv">@insaneluvvv</a>
+                <a className="roboto-w-16" href="https://t.me/insaneluvvv" target="_blank">@insaneluvvv</a>
               </LinkItem>
-              <LinkItem href="https://www.instagram.com/insaneluvvv/">
+              <LinkItem href="https://www.instagram.com/insaneluvvv/" target="_blank">
                 <img src={InstagramIcon} alt="InstagramIcon" />
-                <a className="roboto-w-16" href="https://www.instagram.com/insaneluvvv/">@insaneluvvv</a>
+                <a className="roboto-w-16" href="https://www.instagram.com/insaneluvvv/" target="_blank">@insaneluvvv</a>
               </LinkItem>
-              <LinkItem href="mailto:lemeshev.artem@insaneluv.ru">
+              <LinkItem href="mailto:lemeshev.artem@insaneluv.ru" target="_blank">
                 <img src={EmailIcon} alt="EmailIcon" />
-                <a className="roboto-w-16" href="mailto:lemeshev.artem@insaneluv.ru">lemeshev.artem@insaneluv.ru</a>
+                <a className="roboto-w-16" href="mailto:lemeshev.artem@insaneluv.ru" target="_blank">lemeshev.artem@insaneluv.ru</a>
               </LinkItem>
             </Links>
             <img src={CrossWhiteIcon} alt="CrossWhiteIcon" />

@@ -26,10 +26,12 @@ const FooterWrapper = styled.footer`
   height: 100px;
   background-color: #151515;
   color: #909090;
-  padding: 0 5%;
-  @media (max-width: 800px) {
+  padding: 0 15%;
+  @media (max-width: 1060px) {
     flex-direction: column;
     padding: 20px 5%;
+    justify-content: center;
+    gap: 20px;
   }
 `;
 

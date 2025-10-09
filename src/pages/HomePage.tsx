@@ -247,19 +247,25 @@ const ProjectsList = styled.div`
 	display: flex;
   justify-content: center;
 	flex-wrap: wrap;
-	gap: 50px;
+	gap: 25px 50px;
 `;
 const ProjectCard = styled.div`
   display: flex;
 	flex-direction: column;
   padding: 20px 20px;
-  width: 400px;
+  max-width: 400px;
+  @media (max-width: 600px) {
+    padding: 10px 10px;
+  }
 	img {
 		object-fit: cover;
-		width: 400px;
-		height: 225px;
+		max-width: 400px;
+		max-height: 225px;
 		border-radius: 10px;
 		margin-bottom: 20px;
+    @media (max-width: 600px) {
+     width: 100%; 
+    }
 	}
 `;
 const ProjectName = styled.div`

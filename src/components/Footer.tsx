@@ -1,16 +1,18 @@
 import styled from "styled-components";
-import { FaTelegram } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { ImMail4 } from "react-icons/im";
+
+import TelegramIcon from "./../assets/media/telegram-icon.svg"
+import InstagramIcon from "./../assets/media/instagram-icon.svg"
+import EmailIcon from "./../assets/media/email-icon.svg"
+
 
 const Footer = () => {
   return ( 
     <FooterWrapper>
-      <span className="tag-w-16">// Лемешев Артем //</span>
+      <span className="bookman-w-20">// Лемешев Артем //</span>
       <Socials>
-        <a href="https://t.me/insaneluvvv" target="_blank"><FaTelegram size={30} color="#fff" /></a>  
-        <a href="https://github.com/insaneluvvv" target="_blank"><FaGithub size={30} color="#fff" /></a>
-        <a href="mailto:lemeshev.artem@insaneluv.ru" target="_blank"><ImMail4 size={30} color="#fff" /></a>
+        <a href="https://t.me/insaneluvvv" target="_blank"><img src={TelegramIcon} alt="TelegramIcon" /></a>  
+        <a href="https://www.instagram.com/insaneluvvv/" target="_blank"><img src={InstagramIcon} alt="InstagramIcon" /></a> 
+        <a href="mailto:lemeshev.artem@insaneluv.ru" target="_blank"><img src={EmailIcon} alt="EmailIcon" /></a>
       </Socials>
     </FooterWrapper>
    );
@@ -25,7 +27,6 @@ const FooterWrapper = styled.footer`
   background-color: #151515;
   color: #909090;
   padding: 0 5%;
-  margin-top: 50px;
   @media (max-width: 800px) {
     flex-direction: column;
     padding: 20px 5%;
@@ -36,6 +37,9 @@ const Socials = styled.div`
   display: flex;
   justify-content: space-between;
   width: 110px;
+  img {
+    width: 30px;
+  }
 `;
 
 export default Footer;

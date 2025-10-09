@@ -1,52 +1,155 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@font-face {
+  /* название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)  */
+  font-family: "BOOKOS"; 
+  /* адрес шрифта и тип  */
+  src: url("./assets/fonts/BOOKOS.TTF") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+}
+@font-face {
+  /* название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)  */
+  font-family: "BOOKOSB"; 
+  /* адрес шрифта и тип  */
+  src: url("./assets/fonts/BOOKOSB.TTF") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+}
+@font-face {
+  /* название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)  */
+  font-family: "BOOKOSBI"; 
+  /* адрес шрифта и тип  */
+  src: url("./assets/fonts/BOOKOSBI.TTF") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+}
+@font-face {
+  /* название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)  */
+  font-family: "BOOKOSI"; 
+  /* адрес шрифта и тип  */
+  src: url("./assets/fonts/BOOKOSI.TTF") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+}
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Rubik", serif;
-  font-size: 18px;
-  font-weight: 400;
 }
 
 /* Шрифты */
 
-.title-w-64 {
+.rocker-w-64 {
   font-family: "New Rocker", system-ui;
   font-weight: 400;
   font-style: normal;
   font-size: 64px;
   color: #fff;
+  @media (max-width: 1600px) {
+    font-size: 48px;
+    color: #fff;
+  }
+  @media (max-width: 1200px) {
+    font-size: 32px;
+    color: #fff;
+  }
+  @media (max-width: 600px) {
+    font-size: 28px;
+    color: #151515;
+  }
 }
-.title-w-32 {
-  font-family: "New Rocker", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 32px;
-  color: #fff;
-}
-.title-b-64 {
+.rocker-b-64 {
   font-family: "New Rocker", system-ui;
   font-weight: 400;
   font-style: normal;
   font-size: 64px;
   color: #151515;
+  @media (max-width: 1600px) {
+    font-size: 48px;
+  }
+  @media (max-width: 1060px) {
+    font-size: 32px;
+  }
+  @media (max-width: 600px) {
+    font-size: 28px;
+  }
 }
 
-.description-w-24 {
+.bookman-w-20 {
+  font-family: "BOOKOS", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: #fff;
+  @media (max-width: 1200px) {
+    font-size: 18px;
+  }
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+.bookman-w-20-i {
+  font-family: "BOOKOSI", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: #fff;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+.roboto-w-24 {
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 700;
   font-style: normal;
   font-size: 24px;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
 }
-
-.tag-w-16 {
+.roboto-w-16 {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  color: #fff;
+  @media (max-width: 1200px) {
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
+}
+.roboto-w-18 {
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 }
+
+.nav-link {
+  display: inline;
+  height: 100%;
+  width: 400px;
+	max-width: 100%;
+  background-color: #151515;
+  border-radius: 15px;
+	transition: 200ms ease;
+  text-decoration: none;
+}
+.nav-link:hover{
+    scale: 1.01;
+    box-shadow: 2px 3px 5px black;
+	}

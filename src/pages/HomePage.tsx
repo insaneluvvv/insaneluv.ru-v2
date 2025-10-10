@@ -92,11 +92,11 @@ const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const MainBlock = styled.image`
+const MainBlock = styled.div`
   display: flex;
   height: 100vh;
   width: 100%;
-  background-color: #202020;
+  background-color: #000;
   background-image: url(${BgMoon});
   background-repeat: no-repeat;
   background-size: 100% 100%;

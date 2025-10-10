@@ -1,83 +1,85 @@
 import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 type IntroVideoProps = {
   onFinish: () => void;
 };
 
-const IntroVideo: React.FC<IntroVideoProps> = ({ onFinish }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+const IntroVideo = ({ onFinish }: IntroVideoProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleLoaded = () => {
-      setIsLoaded(true);
-      video.play(); // начать проигрывание, когда готово
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Если autoplay заблокирован — сразу переходим
+        onFinish();
+      });
+    }
+
+    const handleTimeUpdate = () => {
+      if (!video.duration) return;
+
+      // 🔹 Начинаем fade-out за 0.8 сек до конца
+      if (video.duration - video.currentTime <= 0.8 && !isFadingOut) {
+        setIsFadingOut(true);
+      }
     };
 
-    video.addEventListener("canplaythrough", handleLoaded);
-    return () => video.removeEventListener("canplaythrough", handleLoaded);
-  }, []);
+    const handleEnded = () => {
+      // Через 300мс после fade-out завершаем интро
+      setTimeout(() => onFinish(), 300);
+    };
 
-  const handleVideoEnd = () => {
-    onFinish();
-  };
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.addEventListener("ended", handleEnded);
+
+    return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, [onFinish, isFadingOut]);
 
   return (
-    <VideoWrapper isLoaded={isLoaded}>
-      {!isLoaded && <Loader>Loading...</Loader>}
-      <video
+    <VideoWrapper isFadingOut={isFadingOut}>
+      <StyledVideo
         ref={videoRef}
+        src="/intro.mp4"
+        autoPlay
         muted
         playsInline
-        onEnded={handleVideoEnd}
         preload="auto"
-      >
-        <source src="/intro.mp4" type="video/mp4" />
-        Ваш браузер не поддерживает видео.
-      </video>
+      />
     </VideoWrapper>
   );
 };
 
-export default IntroVideo;
+// 🔹 Плавное исчезновение видео
+const fadeOut = keyframes`
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+`;
 
-// ---- Стили ----
-const VideoWrapper = styled.div<{ isLoaded: boolean }>`
+const VideoWrapper = styled.div<{ isFadingOut: boolean }>`
   position: fixed;
   inset: 0;
   background: black;
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 1s ease;
-  opacity: ${({ isLoaded }) => (isLoaded ? 1 : 0)};
-  animation: ${({ isLoaded }) => isLoaded && "fadeOut 1s ease 3s forwards"};
-
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-      @media (max-width: 600px) {
-        scale: 0.7;
-      }
-  }
-
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
+  z-index: 10;
+  animation: ${({ isFadingOut }) => isFadingOut && fadeOut} 0.8s ease forwards;
+  pointer-events: none;
 `;
 
-const Loader = styled.div`
-  position: absolute;
-  color: white;
-  font-size: 24px;
-  font-family: monospace;
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
+
+export default IntroVideo;

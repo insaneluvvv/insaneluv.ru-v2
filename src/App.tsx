@@ -70,8 +70,8 @@ const AppWrapper = styled.div`
 
 const MainWrapper = styled.div<{ visible: boolean }>`
   opacity: ${({ visible }) => (visible ? 1 : 0)};
-  animation: ${({ visible }) => visible && fadeIn} 1.5s ease forwards;
-  transition: opacity 1s ease;
+  animation: ${({ visible }) => visible && fadeIn} 0.8s ease forwards; /* было 1.5s */
+  transition: opacity 0.8s ease;
 `;
 
 export default App;

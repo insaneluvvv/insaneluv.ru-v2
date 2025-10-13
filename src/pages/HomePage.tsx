@@ -7,6 +7,7 @@ import Avatar from "./../assets/media/Avatar.png"
 import InsaneLuvLogo from "./../assets/media/insaneluv-white-logo.png"
 import BgMoon from "./../assets/media/bg-moon.png"
 import BgWhite from "./../assets/media/bg-white.png"
+import BgBlack from "./../assets/media/bg-black.png"
 import TelegramIcon from "./../assets/media/telegram-icon.svg"
 import InstagramIcon from "./../assets/media/instagram-icon.svg"
 import EmailIcon from "./../assets/media/email-icon.svg"
@@ -33,7 +34,7 @@ const HomePage = () => {
               <span className="rocker-w-64">Designer</span>
             </Profession>
           </MainTitle>
-          <BlockDescription>
+          <MainDescription>
             <span className="bookman-w-20">
               ♱ Digital дизайнер с опытом более 3-ех лет.<br/>
               <br/>
@@ -41,8 +42,8 @@ const HomePage = () => {
               <br/>
               ♱ Спектр задач: Логотипы, Айдентика, Брендинг, Баннеры, Презентации, Турниры, Обложки, Инфографика, Интерфейсы.
             </span>
-          </BlockDescription>
-          <BlockFooter>
+          </MainDescription>
+          <MainFooter>
             <Links>
               <LinkItem href="https://t.me/insaneluvvv" target="_blank">
                 <img src={TelegramIcon} alt="TelegramIcon" />
@@ -58,14 +59,36 @@ const HomePage = () => {
               </LinkItem>
             </Links>
             <img src={CrossWhiteIcon} alt="CrossWhiteIcon" />
-          </BlockFooter>
+          </MainFooter>
         </MainContent>
       </MainBlock>
+
+      <AboutBlock>
+        <AboutContent>
+          <AboutTitle>
+            <span className="rocker-b-64">About me</span>
+            <img src={CrossBlackIcon} alt="CrossBlackIcon" />
+          </AboutTitle>
+          <AboutDescription>
+            <span className="bookman-w-20">
+              ♱ За моими плечами 3 года опыта в дизайне. Начинал с оформлений в киберспортивной сфере (турниры, логотипы и т.д.), со временем охватывал всё больше различных задач из областей соц. сетей, брендинга, инфографики и многое другое.<br/><br/>
+              ♱ В добавок к графическому дизайну, изучал Figma и UI/UX, этот интерес сподвигнул к изучению FrontEnd разработки. Знание двух областей помогают лучше понимать работу над проектом в целом и справляться с задачами качественнее.<br/><br/>
+              ♱ Ключевые достижения в дизайне:<br/>
+              — Разработал UI/UX сервиса для обучения нейронной сети Kandinsky (Сбер).<br/>
+              — Выполнил более 150 работ для 50+ клиентов.<br/>
+              — Создал и продвигал личный бренд, нарастив аудиторию в Discord 1500+ участников и Telegram 700+ подписчиков (в пике) для привлечения клиентов.<br/>
+              — Занял призовое место в конкурсе дизайна мерча для российского стримера Dmitry_Lixxx (1.7 млн подписчиков на Twitch).<br/>
+              — Полностью самостоятельно разработал личный сайт на React.
+            </span>
+          </AboutDescription>
+        </AboutContent>
+      </AboutBlock>
+
       <ProjectsBlock>
         <ProjectsContent>
           <ProjectsTitle>
-            <span className="rocker-b-64">Projects</span>
-            <img src={CrossBlackIcon} alt="CrossBlackIcon" />
+            <span className="rocker-w-64">Projects</span>
+            <img src={CrossWhiteIcon} alt="CrossWhiteIcon" />
           </ProjectsTitle>
           <ProjectsList>
             {initProject.map(el => 
@@ -162,6 +185,9 @@ const MainTitle = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  @media (max-width: 600px) {
+    color: #151515;
+  }
   @media (max-width: 1060px) {
     flex-direction: column;
     min-width: 100%;
@@ -177,19 +203,28 @@ const Name = styled.div`
   flex-direction: column;
   @media (max-width: 1060px) {
     align-items: end;
+    span{
+      color: #151515;
+    }
   }
 `;
 const Profession = styled.div`
   display: flex;
+  @media (max-width: 1060px) {
+    align-items: end;
+    span{
+      color: #151515;
+    }
+  }
 `;
-const BlockDescription = styled.div`
+const MainDescription = styled.div`
   display: flex;
   @media (max-width: 1060px) {
     margin-bottom: 40px;
   }
   
 `;
-const BlockFooter = styled.div`
+const MainFooter = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -217,9 +252,44 @@ const LinkItem = styled.a`
   }
   
 `;
-const ProjectsBlock = styled.div`
+
+const AboutBlock = styled.div`
   width: 100%;
   background-image: url(${BgWhite});
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+`;
+const AboutContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 80px 100px;
+  @media (max-width: 1060px) {
+    margin: 40px 10%;
+  }
+`;
+const AboutTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+  img{
+    @media (max-width: 1060px) {
+      height: 50px;
+    }
+  }
+`;
+const AboutDescription = styled.div`
+  padding: 0 5% 0 0;
+  span{
+    color: #151515;
+  }
+`;
+
+const ProjectsBlock = styled.div`
+  width: 100%;
+  background-image: url(${BgBlack});
   background-repeat: no-repeat;
   background-size: 100% 100%;
 `;
@@ -262,7 +332,7 @@ const ProjectCard = styled.div`
 		object-fit: cover;
 		max-width: 400px;
 		max-height: 225px;
-		border-radius: 10px;
+		border-radius: 0px;
 		margin-bottom: 20px;
     @media (max-width: 600px) {
      width: 100%; 
@@ -272,6 +342,7 @@ const ProjectCard = styled.div`
 const ProjectName = styled.div`
 	display: flex;
 	margin-bottom: 20px;
+  color: #151515;
 `;
 const ProjectTags = styled.div`
 	display: flex;
@@ -282,8 +353,8 @@ const ProjectTags = styled.div`
     justify-content: center;
     align-items: center;
 		background-color: 0;
-		color: #fff;
-		border: 2px solid #fff;
+		color: #151515;
+		border: 2px solid #151515;
 		padding: 2px 8px;
 		margin-right: 5px;
 		border-radius: 15px;
@@ -292,7 +363,7 @@ const ProjectTags = styled.div`
 	}
 `;
 const ProjectDesc = styled.div`
-	color: #e7e7e7;
+	color: #151515;
 `;
  
 export default HomePage;

@@ -74,7 +74,7 @@ a {
   }
   @media (max-width: 600px) {
     font-size: 28px;
-    color: #151515;
+    color: #fff;
   }
 }
 .rocker-b-64 {
@@ -172,8 +172,8 @@ a {
   display: inline;
   padding: 10px;
 	max-width: 100%;
-  background-color: #151515;
-  border-radius: 15px;
+  background-color: #e7e7e7;
+  border-radius: 0px;
 	transition: 200ms ease;
   text-decoration: none;
 }

@@ -17,30 +17,19 @@ import LinguaFlowPage from "./pages/projects/LinguaFlowPage";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
-  const [showMain, setShowMain] = useState(false);
-
-  // useEffect(() => {
-  //   const hasSeenIntro = localStorage.getItem("hasSeenIntro");
-
-  //   if (hasSeenIntro) {
-  //     setShowIntro(true);
-  //     setShowMain(false);
-  //   } else {
-  //     localStorage.setItem("hasSeenIntro", "true");
-  //   }
-  // }, []);
 
   const handleIntroFinish = () => {
     setShowIntro(false);
-    setShowMain(true);
   };
 
   return (
     <AppWrapper>
       <Router>
+        {/* 🔹 IntroVideo всегда сверху */}
         {showIntro && <IntroVideo onFinish={handleIntroFinish} />}
 
-        <MainWrapper visible={showMain}>
+        {/* 🔹 Главный контент загружается сразу, но скрыт под видео */}
+        <MainWrapper >
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/logofolio" element={<LogofolioPage />} />
@@ -51,27 +40,29 @@ function App() {
             <Route path="/linguaflow" element={<LinguaFlowPage />} />
             <Route path="*" element={<NotFounPage />} />
           </Routes>
-          <Footer />
         </MainWrapper>
+        <Footer />
       </Router>
     </AppWrapper>
   );
 }
 
-// 🔹 Стили
+// 🔹 Анимация появления главной страницы
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
 
 const AppWrapper = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
+  position: relative;
 `;
 
-const MainWrapper = styled.div<{ visible: boolean }>`
-  opacity: ${({ visible }) => (visible ? 1 : 0)};
-  animation: ${({ visible }) => visible && fadeIn} 0.8s ease forwards; /* было 1.5s */
-  transition: opacity 0.8s ease;
+const MainWrapper = styled.div`
+  min-height: calc(100vh - 100px);
+  @media (max-width: 1060px) {
+    min-height: calc(100vh - 100px - 40px);
+  }
 `;
 
 export default App;

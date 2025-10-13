@@ -71,10 +71,11 @@ const VideoWrapper = styled.div<{ isFadingOut: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 9999; /* 🔹 Поверх всего */
   animation: ${({ isFadingOut }) => isFadingOut && fadeOut} 0.8s ease forwards;
   pointer-events: none;
 `;
+
 
 const StyledVideo = styled.video`
   width: 100%;

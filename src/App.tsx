@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import Footer from "./components/Footer";
 import IntroVideo from "./components/IntroVideo";
@@ -47,15 +47,8 @@ function App() {
   );
 }
 
-// 🔹 Анимация появления главной страницы
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
-
 const AppWrapper = styled.div`
-  min-height: 100%;
-  position: relative;
+  min-height: 100vh;
 `;
 
 const MainWrapper = styled.div`

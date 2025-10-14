@@ -6,12 +6,12 @@ import InsaneLuvLogo from "./../assets/media/insaneluv-white-logo.png"
 const NotFounPage = () => {
   return ( 
     <NotFoundWrapper>
-      <HomeLogo><NavLink to="/"><img src={InsaneLuvLogo}/></NavLink></HomeLogo>
+      <NavLink to="/"><HomeLogo><img src={InsaneLuvLogo}/></HomeLogo></NavLink>
       <NotFoundContent>
         <p className="roboto-w-24">404</p>
         <span className="roboto-w-24">Not Found</span>
         <NavLink to="/">
-          <button>Вернуться на главную</button>
+          <button><span className="roboto-w-18">Вернуться на главную</span></button>
         </NavLink>
       </NotFoundContent>
     </NotFoundWrapper>
@@ -19,20 +19,17 @@ const NotFounPage = () => {
 }
 
 const NotFoundWrapper = styled.div`
-	padding: 40px 10% 0 10%;
-	width: 80%;
-  display: flex;
+	display: flex;
   flex-direction: column;
 	align-items: center;
-  justify-content: center;
-  
+  padding: 40px 10%;
+	width: 80%;
+
 `;
 const HomeLogo = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 100px;
   img{
-    display: flex;
-    justify-content: center;
-    width: 200px;
+    height: 120px;
   }
 `;
 const NotFoundContent = styled.div`
@@ -40,10 +37,19 @@ const NotFoundContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   gap: 20px;
   p{
     font-size: 64px;
+  }
+  button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+    span{
+      color: #151515;
+    }
   }
 `;
  

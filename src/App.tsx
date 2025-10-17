@@ -14,6 +14,7 @@ import StudJobPage from "./pages/projects/StudJobPage";
 import CourseResearchWorkPage from "./pages/projects/CourseResearchWorkPage";
 import TournamentsPage from "./pages/projects/TournamentsPage";
 import LinguaFlowPage from "./pages/projects/LinguaFlowPage";
+import PersonalSitePage from "./pages/projects/PersonalSitePage";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -38,6 +39,7 @@ function App() {
             <Route path="/course-research-work" element={<CourseResearchWorkPage />} />
             <Route path="/tournaments" element={<TournamentsPage />} />
             <Route path="/linguaflow" element={<LinguaFlowPage />} />
+            <Route path="/personal-site" element={<PersonalSitePage />} />
             <Route path="*" element={<NotFounPage />} />
           </Routes>
         </MainWrapper>

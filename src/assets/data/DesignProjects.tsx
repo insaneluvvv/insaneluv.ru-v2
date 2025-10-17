@@ -4,6 +4,7 @@ import StudJob from "./../media/projects/studjob.png";
 import crw from "./../media/projects/crw.png";
 import tournaments from "./../media/projects/tournaments.png";
 import linguaflow from "./../media/projects/linguaflow.png";
+import personalsite from "./../media/projects/personalsite.png";
 
 
 
@@ -52,6 +53,14 @@ const initProject: Array<ProjectInt> = [
   },
   {
     id: 5,
+    tag: ["Графический дизайн", "Турниры", "Таблицы", "Сетки", "Ростеры"],
+    name: "Турниры",
+    desc: "Работы связанные с турнирами.",
+    img: tournaments,
+    link: "tournaments",
+  },
+  {
+    id: 6,
     tag: ["Графический дизайн", "Презентация"],
     name: "Презентация КНИР",
     desc: "Презентация для выступления.",
@@ -59,21 +68,15 @@ const initProject: Array<ProjectInt> = [
     link: "course-research-work",
   },
   {
-    id: 6,
-    tag: ["Графический дизайн", "Турниры", "Таблицы", "Сетки", "Ростеры"],
-    name: "Турниры",
-    desc: "Работы связанные с турнирами.",
-    img: tournaments,
-    link: "tournaments",
+    id: 7,
+    tag: ["FrontEnd", "UI/UX", "Интерфейс", "Многостраничник"],
+    name: "Личный сайт v1",
+    desc: "Первая версия личного сайта",
+    img: personalsite,
+    link: "personal-site",
   },
-  // {
-  //   id: 6,
-  //   tag: ["Графический дизайн", "Турнир"],
-  //   name: "Турнирные таблицы",
-  //   desc: "Коллекция турнирных таблиц.",
-  //   img: test,
-  //   link: "test",
-  // },
+
+
 ]
 
 export default initProject;
